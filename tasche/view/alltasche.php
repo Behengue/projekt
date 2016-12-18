@@ -25,13 +25,13 @@
 						$marke = $queryMarke->fetch();
 						?>
 							<div class="col-lg-6">
-								<img src="<?php echo $donnees['PATH'] ?>" class="col-lg-6" id="product"/>
+								<a href="katalog.php?id=<?php echo $donnees['IDTasche']; ?>"> <img src="<?php echo $donnees['PATH'] ?>" class="col-lg-6" id="product"/>
 								<p class="col-lg-6" id="kurzbeschreibung">
-									<b><?php echo $marke['NameMarke'] ?></b><br>
-									<?php echo $donnees['NameTasche'] ?><br>
-									<?php echo $donnees['Preis'] ?><br>
-									<?php echo $donnees['NameTasche'] ?><br>
-								</p>
+									<b><?php echo $marke['NameMarke']; ?></b><br>
+									<?php echo $donnees['NameTasche']; ?><br>
+									<?php echo $donnees['Preis']; ?><br>
+									<?php echo $donnees['NameTasche']; ?><br>
+								</p></a>
 							</div>
 					<?php if($i % 2 == 0){?></div><?php
 				}

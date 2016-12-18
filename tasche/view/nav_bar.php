@@ -5,7 +5,7 @@
               <span><img id="logo" src="../media/500_F_43284985_CDLQaeuPVUe2j10Zlw8gMfoDH64dpEis.jpg"/></span>
             </div>
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="/tasche/view/">Home</a></li>
 			  <?php
 			  	try{
 							$query = $bdd->query('SELECT * FROM kategorie');
