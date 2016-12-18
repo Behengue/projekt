@@ -86,25 +86,30 @@
                 </form>
               </li>
               <li>
-                <div class="btn-group" style="margin-top:8px;">
+                
+				<?php
+					if(!isset($_SESSION['id'])){
+				?>
+					<div class="btn-group" style="margin-top:8px;">
                   <button type="button" class="btn btn-primary">Konto</button>
                   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                     <span class="caret"></span>
                   </button>
-				<?php
-					if(!isset($_SESSION['id'])){
-				?>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"> Anmelden</span></a></li>
+                    <li><a href="anmelden.php"><span class="glyphicon glyphicon-log-in"> Anmelden</span></a></li>
                     <li><a href="registrieren.php"><span class="glyphicon glyphicon-off"> Registrieren</span></a></li>
                   </ul>
                 </div>
 				<?php
 					}else{
-						?>
+						?><div class="btn-group" style="margin-top:8px;">
+                  <button type="button" class="btn btn-primary"><?php echo ucfirst($_SESSION['username']);?> </button>
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                  </button>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="#"><span class="glyphicon glyphicon-user"> Profil</span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-out"> Abmelden</span></a></li>
+                    <li><a href="./../controller/abmelden.php"><span class="glyphicon glyphicon-log-out"> Abmelden</span></a></li>
                   </ul>
                 </div>
 						
