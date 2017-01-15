@@ -118,7 +118,7 @@
 					}
 				?>
               </li>
-			  <li><a href="#"><span class="glyphicon glyphicon-shopping-cart">Warenkorb</span></a></li>
+			  <li><a href="warenkorb.php"><span class="glyphicon glyphicon-shopping-cart">Warenkorb</span><span class="badge"><?php if(isset($_SESSION['waren'])) echo sizeof($_SESSION['waren']); else echo 0;?></span></a></li>
             </ul>
           </div>
         </div>

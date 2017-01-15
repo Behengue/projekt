@@ -46,15 +46,29 @@ session_start();
 					<b><?php echo $design['NameDesign']; ?></b><br>
 						<?php echo $design['BezeichnungDesign']; ?><br>
 					</fieldset>
-					<form action="../controller/WarenkorbController.php?idt=<?php echo $_GET['id']; ?>" method="POST">
+					<form id="formKatalog" method="POST">
+						<input type="hidden" id="id_tasche" value="<?php echo $_GET['id'];?>"/>
 						<input type="number" name="menget"/>
-						<input type="submit" class="btn btn-success" value="Im warenkord hinzufügen">
+						<input type="submit" id="kaufen" class="btn btn-success" value="Sofort kaufen">
+						<input type="submit" id="korb" class="btn btn-primary" value="Im warenkord hinzufügen">
 					</form>
 				</div>
 			</p>
 	</div>
 </div>
-	
+<script>
+	var kaufen = document.getElementById('kaufen'),
+		korb = document.getElementById('korb'),
+		id_tasche = document.getElementById('id_tasche'),
+		formKatalog = document.getElementById('formKatalog');
+		kaufen.addEventListener('click', function(){
+			formKatalog.action = "../controller/sofortkaufen.php?idt=" + id_tasche.innerHTML;
+		}, false);
+		
+		korb.addEventListener('click', function(){
+			formKatalog.action = "../controller/WarenkorbController.php?idt=" + id_tasche.innerHTML;
+		}, false);
+</script>
 <?php	
 	
 

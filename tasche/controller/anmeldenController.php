@@ -1,11 +1,4 @@
 <?php
-function getCount($query){
-		$i = 0;
-		while($query->fetch()){
-			$i++;
-		}
-		return $i;
-}
 $bdd = new PDO('mysql:host=localhost;dbname=taschen', 'root', '');
 $err_username = false;
 $err_pwd = false;
@@ -31,9 +24,9 @@ try{
 	if($err_user_not_exist OR $err_pwd OR $err_username)
 		header('Location: ../view/anmelden.php?err_username='.$err_username.'&err_pwd='.$err_pwd.'&err_user_not_exist='.$err_user_not_exist);
 	else{
-		$query = $bdd->query('SELECT * FROM kunde WHERE Username = \''.$username.'\' AND Password = \''.sha1($pwd).'\'');
-		$count = getCount($query);
-		if($count == 0){
+		$query = $bdd->query('SELECT COUNT(*) FROM kunde WHERE Username = \''.$username.'\' AND Password = \''.sha1($pwd).'\'');
+		$count = $query->fetch();
+		if($count[0] == 0){
 			$err_pwd_not_match = true;
 			header('Location:../view/anmelden.php?err_pwd_not_match='.$err_pwd_not_match);
 		}else{
