@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <?php
-	include 'head.php'
+	include 'head.php';
   ?>
   <body>
   <?php
@@ -59,7 +59,6 @@
 		<?php include 'alltasche.php'?>
       </div>
     </div>
-	
   </body>
   
   <script>

@@ -7,6 +7,13 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="/tasche/view/">Home</a></li>
 			  <?php
+				//function getCount($query){
+					//$i = 0;
+					//while($query->fetch()){
+						//$i++;
+					//}
+					//return $i;
+				//}
 			  	try{
 							$query = $bdd->query('SELECT * FROM kategorie');
 			while($donnees = $query->fetch()){
@@ -117,7 +124,14 @@
 					}
 				?>
               </li>
-			  <li><a href="#"><span class="glyphicon glyphicon-shopping-cart">Warenkorb</span></a></li>
+			  <li><a href="warenkorb.php"><span class="glyphicon glyphicon-shopping-cart">Warenkorb</span><span class="badge"><?php if(isset($_SESSION['waren'])) echo sizeof($_SESSION['waren']); else echo 0;?></span></a></li>
             </ul>
+	<?php
+		/*$i = 1;
+		foreach($_SESSION['waren'] as $waren){
+			echo 'Produkt '.$i.' id = '.$waren['id'].' menge = '.$waren['menge'];
+			$i += 1;
+		}*/
+	?>
           </div>
         </div>
