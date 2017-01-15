@@ -1,13 +1,14 @@
 <?php
 	session_start();
 	include 'head.php';
+	include 'nav_bar.php';
 	
 	$err_name = $err_vorname = $err_strasse = $err_stadt = $err_plz = $err_email = $err_username = $err_pwd = $err_rpwd = "";
 	$name = $email = $vorname = $strasse = $stadt = $plz = $username = $pwd = $rpwd = "";
 
 ?>
 
-
+<div id="content" style="margin-top:50px;">
 <div class="container">
 <style>
 .error {color: #FF0000;}
@@ -107,7 +108,7 @@
 				<label for="pwd">Password:</label>
 				 <span class="error">* <?php echo $err_pwd;?></span> 
 				 <p><span class="error">* Mindesten acht Zeichen.</span></p>
-				<input type="password" name="pwd" class="form-control" required/>
+				<input type="password" name="pwd" class="form-control" placeholder="Mindesten acht Zeichen" required/>
 				<?php
 					if(isset($_GET['err_pwd']) and $_GET['err_pwd'] == true){
 				?>
@@ -132,4 +133,5 @@
 		<button type="submit" class="btn btn-default">Registrieren</button>
 		<button type="reset" class="btn btn-default">Abbrechen</button>
 	</form> 
+</div>
 </div>

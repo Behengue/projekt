@@ -62,11 +62,11 @@ session_start();
 		id_tasche = document.getElementById('id_tasche'),
 		formKatalog = document.getElementById('formKatalog');
 		kaufen.addEventListener('click', function(){
-			formKatalog.action = "../controller/sofortkaufen.php?idt=" + id_tasche.innerHTML;
+			formKatalog.action = "../controller/sofortkaufen.php?idt=" + id_tasche.value;
 		}, false);
 		
 		korb.addEventListener('click', function(){
-			formKatalog.action = "../controller/WarenkorbController.php?idt=" + id_tasche.innerHTML;
+			formKatalog.action = "../controller/WarenkorbController.php?idt=" + id_tasche.value;
 		}, false);
 </script>
 <?php	
