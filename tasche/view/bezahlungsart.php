@@ -61,7 +61,7 @@
 			</div>
 		  </div>
 		  <input type="submit" value="Kaufen" class="btn btn-primary">
-		  <a href="start_seite.php"><input type="submit" value="Abbrechen" class="btn btn-danger"></a>
+		  <a href="start_seite.php"><input value="Abbrechen" class="btn btn-danger"></a>
 		  </form>
 		</div>
 	</div>
