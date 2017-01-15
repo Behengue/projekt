@@ -7,14 +7,8 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="/tasche/view/">Home</a></li>
 			  <?php
-				//function getCount($query){
-					//$i = 0;
-					//while($query->fetch()){
-						//$i++;
-					//}
-					//return $i;
-				//}
 			  	try{
+					$bdd = new PDO('mysql:host=localhost;dbname=taschen', 'root', '');
 							$query = $bdd->query('SELECT * FROM kategorie');
 			while($donnees = $query->fetch()){
 			?>
@@ -32,15 +26,15 @@
 					<?php
 						try{
 							//Calcul de la longueur de toutes les requetes
-							$queryMarke = $bdd->query('SELECT * FROM marke m, tasche t, hatkategorie hk, kategorie k WHERE
+							$queryMarke = $bdd->query('SELECT COUNT(*) FROM marke m, tasche t, hatkategorie hk, kategorie k WHERE
 							m.IDMarke=t.IDMarke AND t.IDTasche=hk.IDTasche AND hk.IDKategorie='.$donnees['IDKategorie'].' GROUP BY NameMarke');
-							$queryType = $bdd->query('SELECT * FROM tasche t, hatkategorie hk, kategorie k, type ty, hattype hty WHERE
+							$queryType = $bdd->query('SELECT COUNT(*) FROM tasche t, hatkategorie hk, kategorie k, type ty, hattype hty WHERE
 							ty.IDType=hty.IDType AND hty.IDTasche=t.IDTasche AND t.IDTasche=hk.IDTasche AND hk.IDKategorie='.$donnees['IDKategorie'].' GROUP BY NameType');
-							$queryDesign = $bdd->query('SELECT * FROM tasche t, hatkategorie hk, kategorie k, design d WHERE
+							$queryDesign = $bdd->query('SELECT COUNT(*) FROM tasche t, hatkategorie hk, kategorie k, design d WHERE
 							d.IDDesign=t.IDDesign AND t.IDTasche=hk.IDTasche AND hk.IDKategorie='.$donnees['IDKategorie'].' GROUP BY NameDesign');
-							$lgMarke = getCount($queryMarke);
-							$lgDesign = getCount($queryDesign);
-							$lgType = getCount($queryType);
+							$lgMarke = $queryMarke->fetch()[0];
+							$lgDesign = $queryDesign->fetch()[0];
+							$lgType = $queryType->fetch()[0];
 							
 							//Extraction des donnees des requestes
 							$queryMarke = $bdd->query('SELECT * FROM marke m, tasche t, hatkategorie hk, kategorie k WHERE
@@ -124,14 +118,7 @@
 					}
 				?>
               </li>
-			  <li><a href="warenkorb.php"><span class="glyphicon glyphicon-shopping-cart">Warenkorb</span><span class="badge"><?php if(isset($_SESSION['waren'])) echo sizeof($_SESSION['waren']); else echo 0;?></span></a></li>
+			  <li><a href="#"><span class="glyphicon glyphicon-shopping-cart">Warenkorb</span></a></li>
             </ul>
-	<?php
-		/*$i = 1;
-		foreach($_SESSION['waren'] as $waren){
-			echo 'Produkt '.$i.' id = '.$waren['id'].' menge = '.$waren['menge'];
-			$i += 1;
-		}*/
-	?>
           </div>
         </div>

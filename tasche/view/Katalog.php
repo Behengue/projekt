@@ -32,11 +32,11 @@ session_start();
 		<img src="<?php echo $tasche['PATH'] ?>" class="col-lg-6" id="product"/>
 			<p class="col-lg-6" id="kurzbeschreibung">
 			<div class="row"><br>
-				<fieldset><legend>Tasche</legend>
-						Name <span class="label label-success"><?php echo $tasche['NameTasche']; ?></span><br>
-						Preis <span class="label label-info"><?php echo $tasche['Preis']; ?></span><br>
-						Bezeichnung <span class="label label-default"><?php echo $tasche['NameTasche']; ?></span><br>
-						Mengue <span class="label label-danger"><?php echo $tasche['Menge']; ?></span><br>
+				<fieldset><legend>Tasche </legend>
+						Name : <span ><?php echo $tasche['NameTasche']; ?></span><br>
+						Preis : <span ><?php echo $tasche['Preis']; ?></span><br>
+						Bezeichnung : <span ><?php echo $tasche['NameTasche']; ?></span><br>
+						Mengue : <span ><?php echo $tasche['Menge']; ?></span><br>
 					</fieldset>
 					<fieldset><legend>Marke</legend>
 					<b><?php echo $marke['NameMarke']; ?></b><br>
@@ -46,6 +46,10 @@ session_start();
 					<b><?php echo $design['NameDesign']; ?></b><br>
 						<?php echo $design['BezeichnungDesign']; ?><br>
 					</fieldset>
+					<form action="../controller/sofortkaufen.php?idt=<?php echo $_GET['id'];?>" method="POST">
+						<input type="number" name="menget"/>
+						<input type="submit" value="Sofort kaufen" class="btn btn-primary"/>
+					</form>
 				</div>
 			</p>
 	</div>

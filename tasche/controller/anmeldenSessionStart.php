@@ -13,5 +13,11 @@
 	$_SESSION['plz'] = $user['PLZ'];
 	$_SESSION['strasse'] = $user['Strasse'];
 	$_SESSION['vorname'] = $user['Vorname'];
-	header('Location: ../view/start_seite.php');
+	
+	if($_SESSION['next'] == 'kaufen'){
+		header('Location: ../view/bezahlungsart.php');
+	}else{
+		$_SESSION['next'] = 'start';
+		header('Location: ../view/start_seite.php');
+	}
 ?>

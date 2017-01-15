@@ -1,4 +1,6 @@
-
+<?php
+	include 'head.php';
+?>
 <html lang="en">
 
 <body>
@@ -19,6 +21,10 @@
       <label><input type="checkbox"> password vergessen</label>
     </div>
   </form>
+</div>
+<div>
+	<h3>Haben sie noch kein Konto?</h3>
+	<a href="registrieren.php">Registrien</a>
 </div>
 
 </body>

@@ -1,6 +1,6 @@
 <?php
 	$err_name = false;
-	$err_vorname = false; 			 
+	$err_vorname = false;
 	$err_strasse = false;
 	$err_stadt = false;
 	$err_plz = false;
