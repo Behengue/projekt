@@ -44,7 +44,7 @@
 											<form id="formKatalog" method="POST" action="../controller/sofortkaufen.php?idt=<?php echo $waren['id'];?>">
 												<input type="number" name="menget" value="<?php echo $waren['menge'];?>"/>
 												<input type="submit" id="kaufen" class="btn btn-success" value="Sofort kaufen">
-												<a href="../controller/warenentfernen.php?idt=<?php echo $waren['id'];?>"><input id="entfern" class="btn btn-primary" value="Entfernen"></a>
+												<a href="#"><input id="entfern" class="btn btn-primary" value="Entfernen"></a>
 											</form>
 										</div>
 									</p>

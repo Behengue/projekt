@@ -2,9 +2,9 @@
 	session_start();
 	
 	//sauvegade des donnees
+	$_SESSION['idt'] = $_GET['idt'];
+	$_SESSION['menget'] = $_POST['menget'];
 	if(!isset($_SESSION['id'])){
-		$_SESSION['idt'] = $_GET['idt'];
-		$_SESSION['menget'] = $_POST['menget'];
 		$_SESSION['next'] = 'kaufen';
 		header('Location: ../view/anmelden.php');
 	}else{

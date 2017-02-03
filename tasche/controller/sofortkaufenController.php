@@ -1,13 +1,9 @@
 <?php
 	session_start();
 	
-	$idt = $_GET['idt'];
-	$bdd = new PDO('mysql:host=localhost;dbname=taschen', 'root', '');
-	$query = $bdd->query('SELECT menge FROM tasche WHERE IDtasche = \''.$idt.'\'');
+	$iban= $_GET['iban'];
+	$query = $bdd->query('SELECT iban FROM kunde WHERE IDkunde = \''.$idk.'\'');
 	$tasche = $query->fetch();
-	$_SESSION['idt'] = $idt;
-	$_SESSION['menge'] = $menge['Menge'];
-	$_SESSION['next'] = $next['Next'];
 	
 	if ($menge < "1") {
     header('Location: ../view/start_seite.php');

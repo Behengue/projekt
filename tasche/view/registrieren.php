@@ -27,7 +27,6 @@
 				<?php
 					}
 				?>
-				
 			</div>
 			<div class="form-group">
 				<label for="vorname">Vorname:</label>
@@ -130,17 +129,6 @@
 					}
 				?>
 			</div>
-			<div class="form-group">
-				<label for="name"></label>
-				 <span class="error">IBAN* <?php echo $err_name;?></span>
-				<input type="text" name="IBAN" class="form-control" required/>
-				<?php
-					if(isset($_GET['err_IBAN']) and $_GET['err_IBAN'] == true){
-				?>
-						<span class="label label-danger">Fehler bei diesem Feld</span>
-				<?php
-					}
-				?>
 		</fieldset>
 		<button type="submit" class="btn btn-default">Registrieren</button>
 		<button type="reset" class="btn btn-default">Abbrechen</button>

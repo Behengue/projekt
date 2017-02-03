@@ -8,7 +8,8 @@
 	$err_username = false;
 	$err_pwd = false;
 	$err_repwd = false;
-	$err_IBAN = false;
+	$err_ibank = false;
+	
 	
 	$err_user_exist = false;
 	
@@ -21,7 +22,9 @@
 	$username = htmlspecialchars($_POST['username']);
 	$pwd = htmlspecialchars($_POST['pwd']);
 	$repwd = htmlspecialchars($_POST['repwd']);
-	$IBAN = htmlspecialchars($_POST['IBAN']);
+	$ibank = htmlspecialchars($_POST['ibank']);
+	
+	
 	
 	if(!(isset($name) AND preg_match("#^([a-zA-Z]{1,1}([a-zA-Z\- ]){2,100})$#", $name)))
 		$err_name = true;
@@ -50,8 +53,10 @@
 	if($repwd != $pwd)
 		$err_repwd = true;
 	
-	if(!(isset($IBAN) AND preg_match("#^([D-E]{1,9}([D-E\-\.\_]){10,11})$#", $IBAN)))
-		$err_IBAN = true;
+	if(!(isset($ibank) AND preg_match("#^([Dd]{1,1}[Ee]{1,1}[0-9]{20})$#", $iban)))
+		$err_ibank = true;
+	
+	
 
   	$bdd = new PDO('mysql:host=localhost;dbname=taschen', 'root', '');
 	
@@ -63,14 +68,14 @@
 			$err_user_exist = true;
 
 		if($err_name OR $err_vorname OR $err_strasse OR $err_plz OR $err_stadt OR $err_email OR $err_username OR $err_pwd OR $err_repwd
-				OR $err_user_exist or $IBAN)
+				OR $err_ibank OR $err_user_exist)
 			header('Location: ../view/registrieren.php?err_name='.$err_name.'&err_vorname='.$err_vorname.'&err_strasse='.$err_strasse.'&err_plz='
 			.$err_plz.'&err_stadt='.$err_stadt.'&err_email='.$err_email.'&err_username='.$err_username.'&err_pwd='.$err_pwd.'&err_repwd='
-			.$err_repwd.'&err_user_exist='.$err_user_exist.'&err_IBAN='.$err_IBAN);
+			.$err_repwd.'&err_IBAN='.$err_ibank.'&err_user_exist='.$err_user_exist);
 		else{
 			$bdd = new PDO('mysql:host=localhost;dbname=taschen', 'root', '');
-			$req = $bdd->prepare('INSERT INTO kunde (Namekunde, Vorname, Strasse, PLZ, Stadt, Email, Username, Password IBAN) VALUES(:Namekunde, :Vorname,:Strasse, :PLZ, :Stadt, :Email, :Username, :Password, :IBAN)');
-			$req->execute(array('Namekunde'=>$name,'Vorname'=>$vorname,'Strasse'=>$strasse,'PLZ'=>(int)$plz,'Stadt'=>$stadt,'Email'=>$email,'Username'=>$username,'Password'=>sha1($pwd),'IBAN'=>$IBAN));
+			$req = $bdd->prepare('INSERT INTO kunde (Namekunde, Vorname, Strasse, PLZ, Stadt, Email, Username, Password, IBANkunde) VALUES(:Namekunde, :Vorname,:Strasse, :PLZ, :Stadt, :Email, :Username, :Password, :IBANkunde)');
+			$req->execute(array('Namekunde'=>$name,'Vorname'=>$vorname,'Strasse'=>$strasse,'PLZ'=>(int)$plz,'Stadt'=>$stadt,'Email'=>$email,'Username'=>$username,'Password'=>sha1($pwd),'IBANkunde'=>$ibank));
 			header('Location: ../view/start_seite.php?user_create=1');
 		}
 	}catch(Exception $e){
