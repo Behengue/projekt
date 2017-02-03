@@ -13,6 +13,7 @@
 	$_SESSION['plz'] = $user['PLZ'];
 	$_SESSION['strasse'] = $user['Strasse'];
 	$_SESSION['vorname'] = $user['Vorname'];
+	$_SESSION ['iban']   = $user['IBANKunde'];
 	
 	if($_SESSION['next'] == 'kaufen'){
 		header('Location: ../view/bezahlungsart.php');

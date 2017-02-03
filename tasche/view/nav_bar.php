@@ -79,11 +79,12 @@
 			}
 			?>
               <li>
-                <form class="navbar-form">
+                <form class="navbar-form" action = "suche.php" method="POST" class="form col-lg-push-3 col-lg-6">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Suche">
+                    <input type="text" name= "suche" class="form-control" placeholder="Suche">
+					
                   </div>
-                  <button type="submit" class="btn btn-default">Suchen</button>
+                  <button type="submit" class="btn btn-success">Suchen</button>
                 </form>
               </li>
               <li>
@@ -109,7 +110,7 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"> Profil</span></a></li>
+                    <li><a href="./../view/profil.php"><span class="glyphicon glyphicon-user"> Profil</span></a></li>
                     <li><a href="./../controller/abmelden.php"><span class="glyphicon glyphicon-log-out"> Abmelden</span></a></li>
                   </ul>
                 </div>
