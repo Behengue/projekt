@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 17. Dez 2016 um 23:04
+-- Erstellungszeit: 03. Feb 2017 um 12:01
 -- Server-Version: 10.1.19-MariaDB
 -- PHP-Version: 7.0.13
 
@@ -109,6 +109,7 @@ INSERT INTO `kategorie` (`IDKategorie`, `NameKategorie`, `BezeichnungKategorie`)
 
 CREATE TABLE `kauft` (
   `Datum` datetime DEFAULT NULL,
+  `IBANKauft` varchar(22) DEFAULT NULL,
   `IDKunde` int(11) NOT NULL,
   `IDTasche` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -128,19 +129,24 @@ CREATE TABLE `kunde` (
   `Vorname` varchar(255) DEFAULT NULL,
   `Username` varchar(255) DEFAULT NULL,
   `Email` varchar(255) DEFAULT NULL,
-  `Password` varchar(255) DEFAULT NULL
+  `Password` varchar(255) DEFAULT NULL,
+  `IBANKunde` varchar(22) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `kunde`
 --
 
-INSERT INTO `kunde` (`IDKunde`, `Namekunde`, `Stadt`, `PLZ`, `Strasse`, `Vorname`, `Username`, `Email`, `Password`) VALUES
-(7, 'Nganya Nana', 'Brandenburg', 14770, 'Zanderstr. 10A', 'Herval', 'herval', 'hervalnganya@yahoo.fr', '11111111'),
-(8, 'Behengue', 'Brandenburg', 14770, 'Zanderstr. 10D', 'Ines', 'inesbeh', 'inesbehengue@yahoo.fr', '11111111'),
-(9, 'Behengue', 'Brandenburg', 14770, 'Zanderstr. 10D', 'Ines', 'inesbehw', 'inesbeheng4ue@yahoo.fr', '11111111'),
-(10, 'Behengue', 'Brandenburg', 14770, 'Zanderstr. 10D', 'Ines', 'inesbehwd', 'inesbehedng4ue@yahoo.fr', '11111111'),
-(11, 'Behengue', 'Brandenburg', 14770, 'Zanderstr. 10D', 'Ines', 'inesbehwde', 'inesbehedng4tue@yahoo.fr', 'a642a77abd7d4f51bf9226ceaf891fcbb5b299b8');
+INSERT INTO `kunde` (`IDKunde`, `Namekunde`, `Stadt`, `PLZ`, `Strasse`, `Vorname`, `Username`, `Email`, `Password`, `IBANKunde`) VALUES
+(7, 'Nganya Nana', 'Brandenburg', 14770, 'Zanderstr. 10A', 'Herval', 'herval', 'hervalnganya@yahoo.fr', '11111111', ''),
+(8, 'Behengue', 'Brandenburg', 14770, 'Zanderstr. 10D', 'Ines', 'inesbeh', 'inesbehengue@yahoo.fr', '11111111', ''),
+(9, 'Behengue', 'Brandenburg', 14770, 'Zanderstr. 10D', 'Ines', 'inesbehw', 'inesbeheng4ue@yahoo.fr', '11111111', ''),
+(10, 'Behengue', 'Brandenburg', 14770, 'Zanderstr. 10D', 'Ines', 'inesbehwd', 'inesbehedng4ue@yahoo.fr', '11111111', ''),
+(11, 'Behengue', 'Brandenburg', 14770, 'Zanderstr. 10D', 'Ines', 'inesbehwde', 'inesbehedng4tue@yahoo.fr', 'a642a77abd7d4f51bf9226ceaf891fcbb5b299b8', ''),
+(12, 'Evina', 'berlin', 10627, 'Kantstrasse 102', 'Giselle Prudence', 'Prudence', 'prudence@gmail.com', '82dcc67b5c0f0d363a2da84613613bf94de1f014', ''),
+(13, 'Marie', 'berlin', 10627, 'Kantstrasse 104', 'Crescence', 'Marie', 'marie@gmail.com', '790c8625cae5371b6221381b41550671605ca9f2', ''),
+(14, 'forlondon', 'London', 12789, 'londonerstr. 13', 'londonfor', 'forlon', 'for@london.com', 'a2d3cc283e233f50b45383fd8c09c2e7a54ea6d3', ''),
+(15, 'Usertest', 'stadttest', 12345, 'strassetest 10', 'Usertest', 'usertest', 'testemail@test.de', '7c222fb2927d828af22f592134e8932480637c0d', '');
 
 -- --------------------------------------------------------
 
@@ -329,7 +335,7 @@ ALTER TABLE `kategorie`
 -- AUTO_INCREMENT für Tabelle `kunde`
 --
 ALTER TABLE `kunde`
-  MODIFY `IDKunde` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `IDKunde` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT für Tabelle `marke`
 --
