@@ -56,7 +56,7 @@
         </footer>
         <?php include 'nav_bar.php' ?>
         <?php include 'caroussel.php'?>
-		<?php include 'alltasche.php'?>
+		<?php include 'alltasche_marke.php'?>
       </div>
     </div>
 	<?php
@@ -69,13 +69,13 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Danke f√ºr Ihren Einkauf</h4>
+								<h4 class="modal-title">Danke f¸r Ihren Einkauf</h4>
 							</div>
 							<div class="modal-body">
 								<p>Der Artikel <?php echo $_GET['idt']; ?> wurde erfolgreich gekauft.</p>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">Schlie√üen</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">Schlieﬂen</button>
 							</div>
 						</div>
 					</div>
@@ -85,13 +85,5 @@
 		}
 	?>
   </body>
-  
-  <script>
-$(window).load(function()
-{
-    $('#userCreate').modal('show');
-    $('#kaufSuccess').modal('show');
-});
-  </script>
 </html>
 

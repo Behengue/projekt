@@ -57,8 +57,10 @@
 								$donneesType = $queryType->fetch();
 					?>
                       <tr>
-                        <td><?php echo $donneesMarke['NameMarke'] ?></td>
-                        <td><?php echo $donneesDesign['NameDesign'] ?></td>
+                        <td><a href="start_seite.php?idk=<?php echo $donnees['IDKategorie'];?>&idm=<?php echo $donneesDesign['IDMarke'];?>">
+							<?php echo $donneesMarke['NameMarke'] ?></a></td>
+                        <td><a href="start_seite.php?idk=<?php echo $donnees['IDKategorie'];?>&idd=<?php echo $donneesDesign['IDDesign'];?>">
+							<?php echo $donneesDesign['NameDesign'] ?></a></td>
                         <td><?php echo $donneesType['NameType'] ?></td>
                       </tr>
 					  <?php
@@ -79,9 +81,9 @@
 			}
 			?>
               <li>
-                <form class="navbar-form">
+                <form class="navbar-form" action="suche.php" method="POST">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Suche">
+                    <input type="text" class="form-control" placeholder="Suche" name="suche">
                   </div>
                   <button type="submit" class="btn btn-default">Suchen</button>
                 </form>
@@ -109,7 +111,7 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"> Profil</span></a></li>
+                    <li><a href="profil.php"><span class="glyphicon glyphicon-user"> Profil</span></a></li>
                     <li><a href="./../controller/abmelden.php"><span class="glyphicon glyphicon-log-out"> Abmelden</span></a></li>
                   </ul>
                 </div>

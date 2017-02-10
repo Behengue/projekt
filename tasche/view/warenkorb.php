@@ -3,12 +3,13 @@
 	//session_destroy();
 	include 'head.php';
 	include 'nav_bar.php';
+	include '../controller/functions.php';
 ?>
 <body style="margin-top:60px;">
 	<div class="container">
 		<h1>Warenkorb</h1>
 		<?php
-			if(isset($_SESSION['waren'])){
+			if(isset($_SESSION['waren']) and lengthWarenKorb($_SESSION["waren"]) > 0){
 				$bdd = new PDO('mysql:host=localhost;dbname=taschen', 'root', '');
 				try{
 					foreach($_SESSION['waren'] as $waren){
@@ -44,7 +45,7 @@
 											<form id="formKatalog" method="POST" action="../controller/sofortkaufen.php?idt=<?php echo $waren['id'];?>">
 												<input type="number" name="menget" value="<?php echo $waren['menge'];?>"/>
 												<input type="submit" id="kaufen" class="btn btn-success" value="Sofort kaufen">
-												<a href="#"><input id="entfern" class="btn btn-primary" value="Entfernen"></a>
+												<a href="../controller/warenentfernen.php?idt=<?php echo $waren['id'];?>"><input id="entfern" class="btn btn-primary" value="Entfernen"></a>
 											</form>
 										</div>
 									</p>

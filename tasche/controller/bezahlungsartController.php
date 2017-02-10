@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	include 'functions.php';
+	
 	$ibankunde= $_POST['ibankunde'];
 	
 	if((isset($ibankunde) AND preg_match("#^([Dd]{1,1}[Ee]{1,1}[0-9]{20})$#", $ibankunde))){
@@ -24,6 +26,8 @@
 					$query2->execute(array('NewIBAN' => $ibankunde, 'IDKunde' => $_SESSION['id']));
 				}
 			}
+			warenEntfernen($_SESSION['idt']);
+			header('Location: ../view/start_seite.php?kauf=1&idt='.$_SESSION['idt']);
 		}catch(Exception $e){
 			die('Fehler:' .$e->getMessage());
 		}

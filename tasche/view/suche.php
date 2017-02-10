@@ -13,6 +13,7 @@
 	               try{
 						$bdd = new PDO('mysql:host=localhost;dbname=taschen', 'root', '');
 						$query = $bdd->query("SELECT * FROM tasche WHERE NameTasche LIKE '%".$suche."%' OR PATH LIKE '%".$suche."%'");
+						$i = 0;
 							while($donnees = $query->fetch()){				
 								$queryDesign = $bdd->query('SELECT * FROM design WHERE IDDesign='.$donnees['IDDesign']);
 								$queryMarke = $bdd->query('SELECT * FROM marke WHERE IDMarke='.$donnees['IDMarke']);
@@ -44,6 +45,16 @@
 									</div>
 								</div>
 							<?php
+							$i++;
+						}
+						if($i == 0){
+							?>
+				<div class="col-lg-9 col-lg-push-3">
+					<div class="row" id="row-product">
+						<h3>Keine ergebnisse gefunden</h3>
+					</div>
+				</div>
+			<?php
 						}
 			}catch(Exception $e){
 				die('Fehler:' .$e->getMessage());
